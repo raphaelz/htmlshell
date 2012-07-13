@@ -18,6 +18,7 @@
    var linkedCSSContent = "&nbsp;&nbsp;&lt;link rel=&quot;stylesheet&quot; href=&quot;<span class=\"edit\">stylesheet.css</span>&quot; type=&quot;text/css&quot;&gt;<br>";
    var embeddedCSSContent = "&nbsp;&nbsp;&lt;style type=&quot;text/css&quot;&gt;<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&lt;/style&gt;<br>";
    var jqueryContent = "&nbsp;&nbsp;&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>";
+   var jqueryuiContent = "&nbsp;&nbsp;&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>";
    var dojoContent = "&nbsp;&nbsp;&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/dojo/1.7.3/dojo/dojo.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>";
    var mooToolsContent = "&nbsp;&nbsp;&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>";
    var prototypeContent = "&nbsp;&nbsp;&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>";
@@ -121,8 +122,9 @@
     <br><br>
     Include <a href="http://www.jquery.com" target="jquery">jQuery?</a><br>
     <span id="jquery-radio-group">
-     <input type="radio" checked="checked" id="jquery-radio-no" name="jquery" onclick="hideSpan('#jquery-div');"><label for="jquery-radio-no">No</label>
-     <input type="radio" id="jquery-radio-yes" name="jquery" onclick="showSpan('#jquery-div', jqueryContent);"><label for="jquery-radio-yes">Yes</label>
+     <input type="radio" checked="checked" id="jquery-radio-no" name="jquery" onclick="hideSpan('#jquery-div');hideSpan('#jqueryui-div');"><label for="jquery-radio-no">No</label>
+     <input type="radio" id="jquery-radio-yes" name="jquery" onclick="showSpan('#jquery-div', jqueryContent);hideSpan('#jqueryui-div');"><label for="jquery-radio-yes">Yes</label>
+     <input type="radio" id="jquery-radio-withui" name="jquery" onclick="showSpan('#jquery-div', jqueryContent);showSpan('#jqueryui-div', jqueryuiContent);"><label for="jquery-radio-withui">+ UI</label>
     </span>
     <br><br>
     Include <a href="http://www.dojotoolkit.org" target="dojo">Dojo Toolkit?</a><br>
@@ -179,6 +181,7 @@
       &nbsp;&nbsp;<br>
      </span>
 	 <span id="jquery-div" style="display:none;"></span>
+	 <span id="jqueryui-div" style="display:none;"></span>
      <span id="dojo-div" style="display:none;"></span>
      <span id="mootools-div" style="display:none;"></span>
      <span id="prototype-div" style="display:none;"></span>
