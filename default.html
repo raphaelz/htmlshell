@@ -11,6 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
   <script type="text/javascript">
+   var xuaContent = "&nbsp;&nbsp;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;<br>";
    var commonMetasContent = "&nbsp;&nbsp;&lt;meta name=&quot;author&quot; content=&quot;<span class=\"edit\">name</span>&quot;&gt;<br>&nbsp;&nbsp;&lt;meta name=&quot;description&quot; content=&quot;<span class=\"edit\">description here</span>&quot;&gt;<br>&nbsp;&nbsp;&lt;meta name=&quot;keywords&quot; content=&quot;<span class=\"edit\">keywords,here</span>&quot;&gt;<br>";
    var faviconContent = "&nbsp;&nbsp;&lt;link rel=&quot;shortcut icon&quot; href=&quot;<span class=\"edit\">favicon.ico</span>&quot; type=&quot;image/vnd.microsoft.icon&quot;&gt;<br>";
    var googleWebFontContent = "&nbsp;&nbsp;&lt;link rel='stylesheet' href='//fonts.googleapis.com/css?family=<span class=\"edit\">font1|font2|etc</span>' type='text/css'&gt;<br>";
@@ -26,6 +27,7 @@
       
    $(function()
    {
+    $("#xua-radio-group").buttonset();
     $("#commonmetas-radio-group").buttonset();
     $("#favicon-radio-group").buttonset();
     $("#googlewebfonts-radio-group").buttonset();
@@ -85,6 +87,12 @@
   </header>
   <div id="wrapper">
    <section id="options">
+    Include X-UA-Compatible Meta Tag?<br>
+    <span id="xua-radio-group">
+     <input type="radio" checked="checked" id="xua-radio-no" name="xua" onclick="hideSpan('#xua-div');"><label for="xua-radio-no">No</label>
+     <input type="radio" id="xua-radio-yes" name="xua" onclick="showSpan('#xua-div', xuaContent);"><label for="xua-radio-yes">Yes</label>
+    </span>
+    <br><br>
     Include Common Meta Tags?<br>
     <span id="commonmetas-radio-group">
      <input type="radio" checked="checked" id="commonmetas-radio-no" name="commonmetas" onclick="hideSpan('#commonmetas-div');"><label for="commonmetas-radio-no">No</label>
@@ -154,8 +162,11 @@
       &lt;!DOCTYPE html&gt;<br>
       &lt;html&gt;<br>
       &nbsp;&lt;head&gt;<br>
-      &nbsp;&nbsp;&lt;meta charset=&quot;UTF-8&quot;&gt;<br>
-      &nbsp;&nbsp;&lt;title&gt;<span class="edit">title</span>&lt;/title&gt;<br>
+	  &nbsp;&nbsp;&lt;meta charset=&quot;UTF-8&quot;&gt;<br>
+	 </span>
+     <span id="xua-div" style="display:none;"></span>
+     <span>
+	  &nbsp;&nbsp;&lt;title&gt;<span class="edit">title</span>&lt;/title&gt;<br>
      </span>
      <span id="commonmetas-div" style="display:none;"></span>
      <span id="favicon-div" style="display:none;"></span>
