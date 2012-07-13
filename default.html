@@ -12,6 +12,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
   <script type="text/javascript">
+   var htmlMTContent = "&lt;html&gt;<br>";
+   var htmlIEContent = "&lt;!--[if lte IE 6]&gt;&lt;html class=\"preIE7 preIE8 preIE9\"&gt;&lt;![endif]--&gt;<br>&lt;!--[if IE 7]&gt;&lt;html class=\"preIE8 preIE9\"&gt;&lt;![endif]--&gt;<br>&lt;!--[if IE 8]&gt;&lt;html class=\"preIE9\"&gt;&lt;![endif]--&gt;<br>&lt;!--[if gte IE 9]&gt;&lt;!--&gt;&lt;html&gt;&lt;!--&lt;![endif]--&gt;<br>";
    var xuaContent = "&nbsp;&nbsp;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;<br>";
    var commonMetasContent = "&nbsp;&nbsp;&lt;meta name=&quot;author&quot; content=&quot;<span class=\"edit\">name</span>&quot;&gt;<br>&nbsp;&nbsp;&lt;meta name=&quot;description&quot; content=&quot;<span class=\"edit\">description here</span>&quot;&gt;<br>&nbsp;&nbsp;&lt;meta name=&quot;keywords&quot; content=&quot;<span class=\"edit\">keywords,here</span>&quot;&gt;<br>";
    var faviconContent = "&nbsp;&nbsp;&lt;link rel=&quot;shortcut icon&quot; href=&quot;<span class=\"edit\">favicon.ico</span>&quot; type=&quot;image/vnd.microsoft.icon&quot;&gt;<br>";
@@ -29,6 +31,7 @@
       
    $(function()
    {
+    $("#html-radio-group").buttonset();
     $("#xua-radio-group").buttonset();
     $("#commonmetas-radio-group").buttonset();
     $("#favicon-radio-group").buttonset();
@@ -89,6 +92,12 @@
   </header>
   <div id="wrapper">
    <section id="options">
+    Include IE Conditional HTML Tag?<br>
+    <span id="html-radio-group">
+     <input type="radio" checked="checked" id="html-radio-MT" name="htmltag" onclick="showSpan('#htmlMT-div', htmlMTContent);hideSpan('#htmlIE-div');"><label for="html-radio-MT">No</label>
+     <input type="radio" id="html-radio-IE" name="htmltag" onclick="hideSpan('#htmlMT-div');showSpan('#htmlIE-div', htmlIEContent);"><label for="html-radio-IE">Yes</label>
+    </span>
+    <br><br>
     Include X-UA-Compatible Meta Tag?<br>
     <span id="xua-radio-group">
      <input type="radio" checked="checked" id="xua-radio-no" name="xua" onclick="hideSpan('#xua-div');"><label for="xua-radio-no">No</label>
@@ -163,7 +172,10 @@
     <code id="markup" onclick="selectCode()">
      <span>
       &lt;!DOCTYPE html&gt;<br>
-      &lt;html&gt;<br>
+	 </span>
+	 <span id="htmlMT-div" style="display:block;">&lt;html&gt;<br></span>
+	 <span id="htmlIE-div" style="display:none;"></span>
+	 <span>
       &nbsp;&lt;head&gt;<br>
 	  &nbsp;&nbsp;&lt;meta charset=&quot;UTF-8&quot;&gt;<br>
 	 </span>
