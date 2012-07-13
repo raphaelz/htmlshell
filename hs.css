@@ -3,7 +3,7 @@ body {margin:0px;background-color:#CCCCCC;background:-webkit-linear-gradient(top
 header {margin:10px;padding:0px;height:226px;text-align:center;}
 #wrapper {margin: 10px 140px;}
 #options {display:block;float:left;margin-right:10px;padding:10px;white-space:nowrap;font-family:Segoe UI, Helvetica, Arial, sans-serif;font-size:11px;border-style:solid;border-width:1px;border-color:#000000;border-radius:10px;background-color:#FFFFFF;}
-#options a {color:#286717;}
+#options a {color:#E44D26;}
 #options label {margin-top:2px;}
 #markupWrapper {overflow:hidden;}
 #markup {display:block;padding:10px;overflow:hidden;font-family:monospace;font-size:11px;border-style:solid;border-width:1px;border-color:#000000;border-radius:10px;background-color:#FFFFFF;}
