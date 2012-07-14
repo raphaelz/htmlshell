@@ -20,6 +20,7 @@
    var googleWebFontContent = "&nbsp;&nbsp;&lt;link rel='stylesheet' href='//fonts.googleapis.com/css?family=<span class=\"edit\">font1|font2|etc</span>' type='text/css'&gt;<br>";
    var linkedCSSContent = "&nbsp;&nbsp;&lt;link rel=&quot;stylesheet&quot; href=&quot;<span class=\"edit\">stylesheet.css</span>&quot; type=&quot;text/css&quot;&gt;<br>";
    var embeddedCSSContent = "&nbsp;&nbsp;&lt;style type=&quot;text/css&quot;&gt;<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&lt;/style&gt;<br>";
+   var analyticsContent = "&nbsp;&nbsp;&lt;script type=&quot;text/javascript&quot;&gt;<br/>&nbsp;&nbsp;&nbsp;var _gaq = _gaq || [];<br/>&nbsp;&nbsp;&nbsp;_gaq.push(['_setAccount', '<span class=\"edit\">UA-XXXXXXXX-Y</span>']);<br/>&nbsp;&nbsp;&nbsp;_gaq.push(['_trackPageview']);<br/>&nbsp;&nbsp;&nbsp;(function()<br/>&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;<br/>&nbsp;&nbsp;&nbsp;&nbsp;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';<br/>&nbsp;&nbsp;&nbsp;&nbsp;var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);<br/>&nbsp;&nbsp;&nbsp;})();<br/>&nbsp;&nbsp;&lt;/script&gt;<br/>";
    var jqueryContent = "&nbsp;&nbsp;&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>";
    var jqueryuiContent = "&nbsp;&nbsp;&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>";
    var dojoContent = "&nbsp;&nbsp;&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/dojo/1.7.3/dojo/dojo.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>";
@@ -37,6 +38,7 @@
     $("#favicon-radio-group").buttonset();
     $("#googlewebfonts-radio-group").buttonset();
     $("#stylesheet-radio-group").buttonset();
+    $("#analytics-radio-group").buttonset();
     $("#jquery-radio-group").buttonset();
     $("#dojo-radio-group").buttonset();
     $("#mootools-radio-group").buttonset();
@@ -80,7 +82,7 @@
    _gaq.push(['_trackPageview']);
    (function()
    {
-    var ga = document.createElement('script');ga.type = 'text/javascript'; ga.async = true;
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
    })();
@@ -128,6 +130,12 @@
      <input type="radio" id="stylesheet-radio-linked" name="stylesheet" value="linked" onclick="showSpan('#linkedcss-div', linkedCSSContent);hideSpan('#embeddedcss-div');"><label for="stylesheet-radio-linked">Linked</label>
      <input type="radio" id="stylesheet-radio-embedded" name="stylesheet" value="embedded" onclick="hideSpan('#linkedcss-div');showSpan('#embeddedcss-div', embeddedCSSContent);"><label for="stylesheet-radio-embedded">Embedded</label>
      <input type="radio" id="stylesheet-radio-both" name="stylesheet" value="both" onclick="showSpan('#linkedcss-div', linkedCSSContent);showSpan('#embeddedcss-div', embeddedCSSContent);"><label for="stylesheet-radio-both">Both</label>
+    </span>
+    <br><br>
+    Include <a href="http://www.google.com/analytics/" target="analytics">Google Analytics?</a><br>
+    <span id="analytics-radio-group">
+     <input type="radio" checked="checked" id="analytics-radio-no" name="analytics" onclick="hideSpan('#analytics-div');"><label for="analytics-radio-no">No</label>
+     <input type="radio" id="analytics-radio-yes" name="analytics" onclick="showSpan('#analytics-div', analyticsContent);"><label for="analytics-radio-yes">Yes</label>
     </span>
     <br><br>
     Include <a href="http://www.jquery.com" target="jquery">jQuery?</a><br>
@@ -188,6 +196,7 @@
      <span id="googlewebfonts-div" style="display:none;"></span>
      <span id="linkedcss-div" style="display:none;"></span>
      <span id="embeddedcss-div" style="display:none;"></span>
+     <span id="analytics-div" style="display:none;"></span>
      <span>
       &nbsp;&lt;/head&gt;<br>
       &nbsp;&lt;body&gt;<br>
