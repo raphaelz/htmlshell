@@ -12,8 +12,8 @@ header {margin:10px;padding:0px;height:226px;margin-left: 263px;}
 #selectHintText {display:none;font-family:Segoe UI, Helvetica, Arial, sans-serif;font-size:11px;font-style:italic;color:#389220;}
 #editHintText {display:inline;font-family:Segoe UI, Helvetica, Arial, sans-serif;font-size:11px;font-style:italic;color:#E44D26;}
 #bottomSpacer {clear:both;}
-footer {position:fixed;bottom:0px;width:100%;text-align:center;font-family:Segoe UI, Helvetica, Arial, sans-serif;font-size:11px;color:#CCCCCC;background-color:#333333;}
-a {text-decoration:none;color:#CCEECC;}
+footer {position:fixed;bottom:0px;width:100%;text-align:center;font-family:Segoe UI, Helvetica, Arial, sans-serif;font-size:11px;color:#CCCCCC;background-color:#333333;padding:5px;}
+a {text-decoration:none;color:#E44D26;}
 ::selection {background-color:#389220;}
 ::-moz-selection {background-color:#389220;}
 
