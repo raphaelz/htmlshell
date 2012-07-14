@@ -12,15 +12,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
   <script type="text/javascript">
+   var selectCodeOn = true;
    var htmlMTContent = "&lt;html&gt;<br>";
    var htmlIEContent = "&lt;!--[if lte IE 6]&gt;&lt;html class=\"preIE7 preIE8 preIE9\"&gt;&lt;![endif]--&gt;<br>&lt;!--[if IE 7]&gt;&lt;html class=\"preIE8 preIE9\"&gt;&lt;![endif]--&gt;<br>&lt;!--[if IE 8]&gt;&lt;html class=\"preIE9\"&gt;&lt;![endif]--&gt;<br>&lt;!--[if gte IE 9]&gt;&lt;!--&gt;&lt;html&gt;&lt;!--&lt;![endif]--&gt;<br>";
    var xuaContent = "&nbsp;&nbsp;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;<br>";
-   var commonMetasContent = "&nbsp;&nbsp;&lt;meta name=&quot;author&quot; content=&quot;<span class=\"edit\">name</span>&quot;&gt;<br>&nbsp;&nbsp;&lt;meta name=&quot;description&quot; content=&quot;<span class=\"edit\">description here</span>&quot;&gt;<br>&nbsp;&nbsp;&lt;meta name=&quot;keywords&quot; content=&quot;<span class=\"edit\">keywords,here</span>&quot;&gt;<br>";
-   var faviconContent = "&nbsp;&nbsp;&lt;link rel=&quot;shortcut icon&quot; href=&quot;<span class=\"edit\">favicon.ico</span>&quot; type=&quot;image/vnd.microsoft.icon&quot;&gt;<br>";
-   var googleWebFontContent = "&nbsp;&nbsp;&lt;link rel='stylesheet' href='//fonts.googleapis.com/css?family=<span class=\"edit\">font1|font2|etc</span>' type='text/css'&gt;<br>";
-   var linkedCSSContent = "&nbsp;&nbsp;&lt;link rel=&quot;stylesheet&quot; href=&quot;<span class=\"edit\">stylesheet.css</span>&quot; type=&quot;text/css&quot;&gt;<br>";
+   var commonMetasContent = "&nbsp;&nbsp;&lt;meta name=&quot;author&quot; content=&quot;<span class=\"edit\" onclick=\"editText('Enter author name',this);\">name</span>&quot;&gt;<br>&nbsp;&nbsp;&lt;meta name=&quot;description&quot; content=&quot;<span class=\"edit\" onclick=\"editText('Enter page description',this);\">description here</span>&quot;&gt;<br>&nbsp;&nbsp;&lt;meta name=&quot;keywords&quot; content=&quot;<span class=\"edit\" onclick=\"editText('Enter page keywords',this);\">keywords,here</span>&quot;&gt;<br>";
+   var faviconContent = "&nbsp;&nbsp;&lt;link rel=&quot;shortcut icon&quot; href=&quot;<span class=\"edit\" onclick=\"editText('Enter favicon URL',this);\">favicon.ico</span>&quot; type=&quot;image/vnd.microsoft.icon&quot;&gt;<br>";
+   var googleWebFontContent = "&nbsp;&nbsp;&lt;link rel='stylesheet' href='//fonts.googleapis.com/css?family=<span class=\"edit\" onclick=\"editText('Enter font names',this);\">font1|font2|etc</span>' type='text/css'&gt;<br>";
+   var linkedCSSContent = "&nbsp;&nbsp;&lt;link rel=&quot;stylesheet&quot; href=&quot;<span class=\"edit\" onclick=\"editText('Enter stylesheet URL',this);\">stylesheet.css</span>&quot; type=&quot;text/css&quot;&gt;<br>";
    var embeddedCSSContent = "&nbsp;&nbsp;&lt;style type=&quot;text/css&quot;&gt;<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&lt;/style&gt;<br>";
-   var analyticsContent = "&nbsp;&nbsp;&lt;script type=&quot;text/javascript&quot;&gt;<br/>&nbsp;&nbsp;&nbsp;var _gaq = _gaq || [];<br/>&nbsp;&nbsp;&nbsp;_gaq.push(['_setAccount', '<span class=\"edit\">UA-XXXXXXXX-Y</span>']);<br/>&nbsp;&nbsp;&nbsp;_gaq.push(['_trackPageview']);<br/>&nbsp;&nbsp;&nbsp;(function()<br/>&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;<br/>&nbsp;&nbsp;&nbsp;&nbsp;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';<br/>&nbsp;&nbsp;&nbsp;&nbsp;var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);<br/>&nbsp;&nbsp;&nbsp;})();<br/>&nbsp;&nbsp;&lt;/script&gt;<br/>";
+   var analyticsContent = "&nbsp;&nbsp;&lt;script type=&quot;text/javascript&quot;&gt;<br/>&nbsp;&nbsp;&nbsp;var _gaq = _gaq || [];<br/>&nbsp;&nbsp;&nbsp;_gaq.push(['_setAccount', '<span class=\"edit\" onclick=\"editText('Enter tracking ID',this);\">UA-XXXXXXXX-Y</span>']);<br/>&nbsp;&nbsp;&nbsp;_gaq.push(['_trackPageview']);<br/>&nbsp;&nbsp;&nbsp;(function()<br/>&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;<br/>&nbsp;&nbsp;&nbsp;&nbsp;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';<br/>&nbsp;&nbsp;&nbsp;&nbsp;var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);<br/>&nbsp;&nbsp;&nbsp;})();<br/>&nbsp;&nbsp;&lt;/script&gt;<br/>";
    var jqueryContent = "&nbsp;&nbsp;&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>";
    var jqueryuiContent = "&nbsp;&nbsp;&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>";
    var dojoContent = "&nbsp;&nbsp;&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/dojo/1.7.3/dojo/dojo.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>";
@@ -47,19 +48,23 @@
     $("#javascript-radio-group").buttonset();
 	if(window.getSelection)
 	{
-	 $("#hintText").css("display", "inline");
+	 $("#selectHintText").css("display", "inline");
 	}
    });
    
    function selectCode()
    {
-    if(window.getSelection)
+    if(window.getSelection && selectCodeOn)
     {
      var codeRange = document.createRange();
      codeRange.selectNodeContents(document.getElementById("markup"));
      window.getSelection().removeAllRanges();
      window.getSelection().addRange(codeRange);
     }
+	else
+	{
+	 selectCodeOn = true;
+	}
    }
    
    function hideSpan(elementName)
@@ -74,6 +79,13 @@
    {
     $(elementName).html(elementContent);
     $(elementName).slideDown();
+   }
+   
+   function editText(message, span)
+   {
+    var newString = prompt(message, $(span).text());
+	if(newString != "" && newString != null) $(span).text(newString);
+	selectCodeOn = false;
    }
   </script>
   <script type="text/javascript">
@@ -189,7 +201,7 @@
 	 </span>
      <span id="xua-div" style="display:none;"></span>
      <span>
-	  &nbsp;&nbsp;&lt;title&gt;<span class="edit">title</span>&lt;/title&gt;<br>
+	  &nbsp;&nbsp;&lt;title&gt;<span class="edit" onclick="editText('Enter page title',this);">title</span>&lt;/title&gt;<br>
      </span>
      <span id="commonmetas-div" style="display:none;"></span>
      <span id="favicon-div" style="display:none;"></span>
@@ -215,7 +227,8 @@
       &lt;/html&gt;<br>
      </span>
     </code>
-	<span id="hintText">Click in above box to auto-select all markup<br></span>
+	<span id="selectHintText">Click in above box to auto-select all markup.</span>
+	<span id="editHintText">Click on orange text to edit values on page.<br></span>
    </div>
    <div id="bottomSpacer"><br></div>
   </div>
