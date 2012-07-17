@@ -1,28 +1,28 @@
-html {height:100%;}
-body {margin:0px;background-color:#CCCCCC;background:-webkit-linear-gradient(top,#cccccc 0%,#cccccc 50%,#666666 100%);background:-moz-linear-gradient(top,#cccccc 0%,#cccccc 50%,#666666 100%);background:-o-linear-gradient(top,#cccccc 0%,#cccccc 50%,#666666 100%);background:linear-gradient(top,#cccccc 0%,#cccccc 50%,#666666 100%);background-attachment:fixed;}
-header {margin:10px;padding:0px;height:226px;margin-left: 263px;}
-#wrapper {margin: 10px 140px;}
-#options {display:block;float:left;margin-right:10px;padding:10px;white-space:nowrap;font-family:Segoe UI, Helvetica, Arial, sans-serif;font-size:11px;border-style:solid;border-width:1px;border-color:#000000;border-radius:10px;background-color:#FFFFFF;}
-#options a {color:#E44D26;}
-#options label {margin-top:2px;}
-#markupWrapper {overflow:hidden;}
-#markup {display:block;padding:10px;overflow:hidden;font-family:monospace;font-size:11px;border-style:solid;border-width:1px;border-color:#000000;border-radius:10px;background-color:#FFFFFF;}
-#markup span {display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
-#markup .edit {display:inline; color:#E44D26;cursor:pointer;}
-#selectHintText {display:none;font-family:Segoe UI, Helvetica, Arial, sans-serif;font-size:11px;font-style:italic;color:#389220;}
-#editHintText {display:inline;font-family:Segoe UI, Helvetica, Arial, sans-serif;font-size:11px;font-style:italic;color:#E44D26;}
-#bottomSpacer {clear:both;}
-footer {position:fixed;bottom:0px;width:100%;text-align:center;font-family:Segoe UI, Helvetica, Arial, sans-serif;font-size:11px;color:#CCCCCC;background-color:#333333;padding:5px;}
-a {text-decoration:none;color:#E44D26;}
-::selection {background-color:#389220;}
-::-moz-selection {background-color:#389220;}
+html{height:100%;}
+body{margin:0px;background-color:#CCCCCC;background:-webkit-linear-gradient(top,#cccccc 0%,#cccccc 50%,#666666 100%);background:-moz-linear-gradient(top,#cccccc 0%,#cccccc 50%,#666666 100%);background:-o-linear-gradient(top,#cccccc 0%,#cccccc 50%,#666666 100%);background:linear-gradient(top,#cccccc 0%,#cccccc 50%,#666666 100%);background-attachment:fixed;font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;}
+header{margin:10px;padding:0px;height:226px;margin-left:263px;}
+#wrapper{margin:10px 140px;}
+#options{display:block;float:left;margin-right:10px;padding:10px;white-space:nowrap;border-style:solid;border-width:1px;border-color:#000000;border-radius:10px;background-color:#FFFFFF;}
+#options label{margin-top:2px;}
+#markupWrapper{overflow:hidden;}
+#markup{display:block;padding:10px;overflow:hidden;font-family:monospace;border-style:solid;border-width:1px;border-color:#000000;border-radius:10px;background-color:#FFFFFF;}
+#markup span{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+#markup .edit{display:inline;color:#E44D26;cursor:pointer;}
+#selectHintText{display:none;color:#389220;}
+#selectHintText,#editHintText{font-style:italic;}
+#editHintText{display:inline;color:#E44D26;}
+#bottomSpacer{clear:both;}
+footer{position:fixed;bottom:0px;width:100%;text-align:center;color:#CCCCCC;background-color:#333333;padding:5px;}
+a{text-decoration:none;color:#E44D26;}
+::selection{background-color:#389220;}
+::-moz-selection{background-color:#389220;}
 
+/*jQuery UI styles*/
 .ui-helper-hidden-accessible{position:absolute !important;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);}
 .ui-helper-clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
-.ui-widget{font-family:Segoe UI, Helvetica, Arial, sans-serif;font-size:11px;}
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{border:1px solid #000000;background:#0a0a0a url(images/button-default.png) 50% 50% repeat-x;font-weight:bold;color:#00cc1a;}
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited{color:#00cc1a;text-decoration:none;}
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #000000; background: #0a0a0a url(images/button-hover.png) 50% 50% repeat-x; font-weight: bold; color: #00cc1a; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus{ border:1px solid #000000;background:#0a0a0a url(images/button-hover.png) 50% 50% repeat-x;font-weight:bold;color:#00cc1a;}
 .ui-state-hover a, .ui-state-hover a:hover{color:#00cc1a;text-decoration:none;}
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{border:1px solid #000000;background:#009e14 url(images/button-active.png) 50% 50% repeat-x;font-weight:bold;color:#ffffff;}
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited{color:#ffffff;text-decoration:none;}
